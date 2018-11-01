@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.Singleton;
-import org.apache.tomcat.websocket.Transformation;
+import com.cloudinary.Transformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ import java.util.Map;
 public class CloudinaryConfig {
     private Cloudinary cloudinary;
     @Autowired
-    public CloudinaryConfig(@Value("${cloud.key}") String key, @Value("${cloud.secret}") String secret, @Value("${cloud.name}")String cloud){
+    public CloudinaryConfig(@Value("${cloudinary.apikey}") String key, @Value("${cloudinary.apisecret}") String secret, @Value("${cloudinary.cloudname}")String cloud){
         cloudinary = Singleton.getCloudinary();
         cloudinary.config.cloudName=cloud;
         cloudinary.config.apiSecret=secret;
